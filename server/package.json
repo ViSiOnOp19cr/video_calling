@@ -5,7 +5,8 @@
   "dependencies": {
     "@types/cors": "^2.8.19",
     "cors": "^2.8.5",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "ts-node": "^10.9.0"
   },
   "scripts": {
     "start": "ts-node src/index.ts",

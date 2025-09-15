@@ -2,13 +2,20 @@ import { Server } from "socket.io";
 import cors from "cors";
 
 const corsOptions = {
-    origin: [
-        "http://localhost:5173",
-        "https://879e84f8c67c.ngrok-free.app",
-        "https://20edd27da997.ngrok-free.app",
-        "https://98af8a197059.ngrok-free.app",
-        "*"
-      ],
+    origin: process.env.NODE_ENV === 'production' 
+        ? [
+            `https://${process.env.DOMAIN}`,
+            `http://${process.env.DOMAIN}`,
+            "https://videocall.chandancr.xyz",
+            "http://videocall.chandancr.xyz"
+          ]
+        : [
+            "http://localhost:5173",
+            "https://879e84f8c67c.ngrok-free.app",
+            "https://20edd27da997.ngrok-free.app",
+            "https://98af8a197059.ngrok-free.app",
+            "*"
+          ],
     methods: ["GET", "POST"],
     credentials: true,
 }
